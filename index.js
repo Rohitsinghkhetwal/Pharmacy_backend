@@ -3,6 +3,7 @@ const connection = require("./database/Connection.js");
 const cors = require("cors");
 const medicineRoutes = require("./routes/medicine.route.js")
 const customerRoutes = require("./routes/Customer.route.js")
+const SalesRoutes = require("./routes/Sale.route.js");
 require("dotenv").config()
 
 const app = express();
@@ -18,6 +19,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/v1", medicineRoutes)
 app.use("/api/v1", customerRoutes)
+app.use("/api/v1", SalesRoutes);
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT,() => {
